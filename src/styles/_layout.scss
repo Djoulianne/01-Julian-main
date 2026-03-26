@@ -119,21 +119,21 @@ body {
   background-color: #000; 
   position: relative;
   overflow: hidden;
-  padding: 6rem 2rem 6rem; 
+  padding: 6rem 2rem 10rem; 
   text-align: center;
 
   &::before {
     content: '';
     position: absolute;
-		top: 3rem;    
-    bottom: 10rem; 
+	top: 3rem;    
+    bottom: 11rem; 
     left: 0;
     right: 0;    
-		background-image: url('../../src/images/paw_pattern.png');
-    background-size: 50rem; 
-		opacity: 0.2;
-		width: 100%;
-		height: 100%;
+	background-image: url('../../src/images/paw_pattern.png');
+    background-size: 60rem; 
+	opacity: 0.2;
+	width: 100%;
+	height: 70%;
     z-index: 0;
 	
   }
@@ -142,6 +142,12 @@ body {
     position: relative;
     z-index: 1;
   }
+}
+.quiz-types {
+	background-color: #000;
+	z-index: -20;
+	padding: 2rem;
+
 }
 	h1 {
 		font-size: 3.5rem;
@@ -188,7 +194,7 @@ body {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 30px;
-	margin: 40px 20px 0;
+	margin: 0;
 }
 .quiz-card {
 	background-color: variables.$background-color_1;
