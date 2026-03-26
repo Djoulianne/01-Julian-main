@@ -121,7 +121,7 @@ body {
 // PROGRESS BAR
 .progress-zone {
   width: 100%;
-  max-width: 520px; // Aligné sur la largeur de ta .card
+  max-width: 520px; 
   margin-bottom: 22px;
 }
 
@@ -252,40 +252,4 @@ body {
   cursor: pointer;
   transition: opacity 0.2s, transform 0.2s;
   opacity: 0.4;
-}
-// NOUVEAUX STYLES POUR LE FEEDBACK ET LE FOND
-
-// 1. La Mascotte
-.feedback-container {
-  display: flex;
-  flex-direction: column; // Mascotte en haut, texte en bas
-  align-items: center; // Centrer horizontalement
-  margin-top: -15px; // Rapprocher des boutons de réponse
-  margin-bottom: 20px;
-}
-
-.mascot-image {
-  max-width: 80px; // Taille de la mascotte (ajuste à ta guise)
-  height: auto;
-  margin-bottom: 10px; // Espace avec le texte
-}
-
-// 2. Le fond "Rouge" si faux
-// On va ajouter cette classe .is-wrong à l'élément .layer-zigzag en JS
-.layer-zigzag.is-wrong {
-  background-color: #ef4444 !important; // Rouge
-}
-
-// Le conteneur de la mascotte ajouté par le JS
-.feedback-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.mascot-image {
-  max-width: 80px;
-  height: auto;
-  margin-bottom: 10px;
 }

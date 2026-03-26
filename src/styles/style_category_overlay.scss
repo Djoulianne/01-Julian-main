@@ -81,11 +81,10 @@ $purple: #6c5ce7;
     }
   }
 }
-
-
 .categoryOverlay--active {
   position: fixed!important;
   inset: 0;
+  padding-top: 3rem;
   inset-inline: calc(50% - 10rem);
   opacity: 1;
   z-index: 20;
@@ -97,6 +96,6 @@ $purple: #6c5ce7;
     inset: 0;
     position: fixed;
     z-index: -1;
-    opacity: 0.95;
+    opacity: 0.9;
   }
 }

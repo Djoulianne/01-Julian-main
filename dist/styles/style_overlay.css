@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .overlay {
   display: none;
   padding: 20px;
@@ -49,9 +48,7 @@
   border: none;
   background: none;
   padding: 0;
-  width: 120px; /* largeur fixe pour que chaque radio soit bien centré sous son icône */
-}
-.overlay-card img {
+  width: 120px;
   margin-block: -1rem -3.5rem;
 }
 
@@ -88,7 +85,7 @@
 .overlay-icon {
   width: 200px;
   min-height: 250px;
-  padding: 10px;
+  padding-top: 10px;
 }
 
 .overlay-radio {
@@ -107,6 +104,7 @@
   border-block-end: 2px solid #fff;
   padding-inline: 2px;
   padding-block: 0.5rem;
+  padding-top: 3rem;
 }
 .overlay-input::-moz-placeholder {
   color: white;

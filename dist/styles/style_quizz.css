@@ -229,35 +229,4 @@ body {
   cursor: pointer;
   transition: opacity 0.2s, transform 0.2s;
   opacity: 0.4;
-}
-
-.feedback-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: -15px;
-  margin-bottom: 20px;
-}
-
-.mascot-image {
-  max-width: 80px;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.layer-zigzag.is-wrong {
-  background-color: #ef4444 !important;
-}
-
-.feedback-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.mascot-image {
-  max-width: 80px;
-  height: auto;
-  margin-bottom: 10px;
 }/*# sourceMappingURL=style_quizz.css.map */
