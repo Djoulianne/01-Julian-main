@@ -247,14 +247,17 @@ body {
 
 .layer-zigzag.is-wrong {
   background-color: #ef4444 !important;
-  opacity: 0.6;
 }
 
-@media (max-width: 560px) {
-  .card {
-    padding: 24px 18px 20px;
-  }
-  .question {
-    font-size: 22px;
-  }
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mascot-image {
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 10px;
 }/*# sourceMappingURL=style_quizz.css.map */

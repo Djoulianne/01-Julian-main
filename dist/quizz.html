@@ -76,12 +76,15 @@ answerBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     answerBtns.forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
-        btnSubmit.disabled = false;
+    
+    btnSubmit.disabled = false;
     btnSubmit.style.opacity = "1";
   });
 });
 
+// Gestion du clic sur "Submit Answer"
 btnSubmit.addEventListener('click', () => {
+  // Si le bouton dit déjà "Next Question", on pourrait relancer le quiz ou passer à la suite
   if (btnSubmit.textContent === "Next Question") {
     window.location.reload(); 
     return;
@@ -90,10 +93,10 @@ btnSubmit.addEventListener('click', () => {
   const selectedBtn = document.querySelector('.answer-btn.selected');
   const isCorrect = selectedBtn.textContent === CORRECT_ANSWER;
 
-  // 2. desactive button
+  // 2. On désactive tous les boutons pour figer le choix
   answerBtns.forEach(btn => {
     btn.disabled = true;
-    // if correct, add green class to the correct answer
+    // Si c'est la bonne réponse, on l'affiche en vert quoi qu'il arrive
     if (btn.textContent === CORRECT_ANSWER) {
       btn.classList.add('correct');
     }
@@ -104,7 +107,7 @@ btnSubmit.addEventListener('click', () => {
     selectedBtn.classList.add('wrong');
   }
 
-  // 4. feedbacks
+  // 4. On ajoute le message de feedback dynamiquement
   const feedback = document.createElement('p');
   feedback.classList.add('feedback-msg');
   
@@ -116,8 +119,10 @@ btnSubmit.addEventListener('click', () => {
     feedback.classList.add('error');
   }
   
+  // On insère le message juste avant le footer de la carte
   document.querySelector('.card-footer').before(feedback);
 
+  // 5. On transforme le bouton pour passer à la suite
   btnSubmit.textContent = "Next Question";
 });
   </script>

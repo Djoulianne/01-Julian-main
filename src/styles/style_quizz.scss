@@ -273,16 +273,19 @@ body {
 // 2. Le fond "Rouge" si faux
 // On va ajouter cette classe .is-wrong à l'élément .layer-zigzag en JS
 .layer-zigzag.is-wrong {
-  background-color: #ef4444 !important; // Rouge (on utilise !important pour écraser le jaune par défaut)
-  opacity: 0.6; // Un peu plus opaque pour que le rouge soit bien visible
+  background-color: #ef4444 !important; // Rouge
 }
-// RESPONSIVE
-@media (max-width: 560px) {
-  .card {
-    padding: 24px 18px 20px;
-  }
 
-  .question {
-    font-size: 22px;
-  }
+// Le conteneur de la mascotte ajouté par le JS
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mascot-image {
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 10px;
 }
