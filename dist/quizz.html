@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quizz</title>
+  <link rel="stylesheet" href="styles/style_quizz.css" />
+</head>
+<body>
+
+  <!-- COUCHE 1 : fond noir (z-index 1) -->
+  <div class="layer-black" aria-hidden="true"></div>
+
+  <!-- COUCHE 2 : zigzag jaune (z-index 2) -->
+  <div class="layer-zigzag" aria-hidden="true"></div>
+
+  <!-- COUCHE 3 : contenu (z-index 3) -->
+  <div class="layer-content">
+
+    <!-- NAVBAR  -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="index.html">
+        <img src="../src/images/Logo.png" class="brand-icon" alt="Logo">
+        <span class="brand-name">Movie Kings</span>
+      </a>
+      </div>
+      <button class="btn-stop">Stop Quiz</button>
+    </nav>
+
+    <main class="main">
+
+      <!-- Progress bar -->
+      <div class="progress-zone">
+        <div class="progress-meta">
+          <span>Question 1 of 10</span>
+          <span>10%</span>
+        </div>
+        <div class="progress-track"
+             role="progressbar"
+             aria-valuemin="0"
+             aria-valuemax="100"
+             aria-valuenow="10">
+          <div class="progress-fill" style="width: 10%;"></div>
+        </div>
+      </div>
+
+      <!-- Card -->
+      <div class="card">
+        <p class="question">"Here's looking at you, kid."</p>
+
+        <div class="answers">
+          <button class="answer-btn">Casablanca</button>
+          <button class="answer-btn">Gone with the Wind</button>
+          <button class="answer-btn">The Maltese Falcon</button>
+          <button class="answer-btn">Citizen Kane</button>
+        </div>
+
+        <div class="card-footer">
+          <button class="btn-submit" disabled>Submit Answer</button>
+        </div>
+      </div>
+
+    </main>
+  </div><!-- /layer-content -->
+
+  <script>
+    const answerBtns = document.querySelectorAll('.answer-btn');
+    const btnSubmit  = document.querySelector('.btn-submit');
+
+    answerBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        answerBtns.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        btnSubmit.disabled = false;
+      });
+    });
+
+    document.querySelector('.btn-stop').addEventListener('click', () => {
+      if (confirm('Would you like to stop the quiz?')) window.location.reload();
+    });
+  </script>
+
+</body>
+</html>

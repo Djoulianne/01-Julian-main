@@ -1,0 +1,149 @@
+@charset "UTF-8";
+.overlay {
+  display: none;
+  padding: 20px;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-box {
+  background: #1a1a1a;
+  padding: 40px;
+  width: 90%;
+  max-width: 560px;
+  position: relative;
+  text-align: start;
+  border: 5px solid #fff;
+  box-shadow: 10px 10px #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overlay-title {
+  color: #fff;
+}
+
+.overlay-subtitle {
+  color: #555;
+  font-weight: lighter;
+}
+
+.overlay-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.overlay-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border: none;
+  background: none;
+  padding: 0;
+  width: 120px; /* largeur fixe pour que chaque radio soit bien centré sous son icône */
+}
+.overlay-card img {
+  margin-block: -1rem -3.5rem;
+}
+
+.overlay-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.overlay-btn {
+  margin-top: 2rem;
+  background: #f59e0b;
+  color: #111;
+  box-shadow: #111;
+  padding: 12px 40px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  display: block;
+  margin-inline: auto;
+  align-items: center;
+  justify-content: center;
+}
+.overlay-btn:hover {
+  background: #d97706;
+}
+
+.overlay-icon {
+  width: 200px;
+  min-height: 250px;
+  padding: 10px;
+}
+
+.overlay-radio {
+  justify-content: center;
+}
+
+/* ---------- INPUT ---------- */
+.overlay-input {
+  display: block;
+  width: 180px;
+  margin: 20px auto 12px;
+  font-size: small;
+  border: none;
+  background: transparent;
+  color: white;
+  border-block-end: 2px solid #fff;
+  padding-inline: 2px;
+  padding-block: 0.5rem;
+}
+.overlay-input::-moz-placeholder {
+  color: white;
+}
+.overlay-input::placeholder {
+  color: white;
+}
+.overlay-input:focus {
+  outline: none;
+  background: rgb(205, 205, 205);
+  color: black;
+  border-radius: 2rem;
+}
+.overlay-input:focus::-moz-placeholder {
+  color: transparent;
+}
+.overlay-input:focus::placeholder {
+  color: transparent;
+}
+
+.binari {
+  width: 110px;
+}
+
+@media (max-width: 560px) {
+  .overlay-cards {
+    gap: 12px;
+  }
+  .overlay-icon {
+    width: 100%;
+    min-height: 0;
+    padding-top: 2rem;
+  }
+  .overlay-card {
+    width: 5rem;
+  }
+  .overlay-radio {
+    margin: 3rem;
+  }
+}/*# sourceMappingURL=style_overlay.css.map */

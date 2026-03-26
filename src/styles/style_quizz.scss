@@ -1,0 +1,265 @@
+@use 'variables';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+// COUCHE 1 — FOND NOIR (z-index: 1)
+.layer-black {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background-color: variables.$black;
+}
+
+// COUCHE 2 — ZIGZAG JAUNE (z-index: 2)
+.layer-zigzag {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  background-color: variables.$yellow;
+  background-image: url("../../src/images/paw_pattern_nobg.png");
+  opacity: 0.4;
+  background-repeat: repeat;
+  background-size: 30rem;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: variables.$black;
+  }
+
+  &::before {
+    top: 0;
+    height: 56px;
+  }
+
+  &::after {
+    bottom: 0;
+    height: 48px;
+  }
+}
+
+// COUCHE 3 — CONTENU (z-index: 3)
+.layer-content {
+  position: relative;
+  z-index: 3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// NAVBAR
+.navbar {
+  height: 4rem;                  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: variables.$white;  
+  padding: 0 24px;
+  flex-shrink: 0;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  height: 28px;
+  width: auto;
+}
+
+.brand-name {
+  font-family: variables.$font-main;
+  letter-spacing: 1px;
+  font-size: 16px;
+	font-weight: 600;
+	color: variables.$color_2;
+	letter-spacing: -0.3px;
+}
+
+.btn-stop {
+  background: variables.$white;
+  border: 0.2rem solid variables.$black;
+  color: variables.$black;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover {
+    background: variables.$black;
+    color: variables.$white;
+  }
+}
+
+// MAIN
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 64px;
+}
+
+// PROGRESS BAR
+.progress-zone {
+  width: 100%;
+  max-width: 520px;
+  margin-bottom: 22px;
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: variables.$white;
+  font-family: variables.$font-main;
+  margin-bottom: 6px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255,);
+  border: 20px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: variables.$color_1;
+  transition: width 0.5s (0.4, 0, 0.2, 1);
+}
+
+// CARD
+.card {
+  background: variables.$white;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.30);
+  padding: 36px 36px 28px;
+  width: 100%;
+  max-width: 520px;
+}
+
+// QUESTION
+.question {
+  font-size: 28px;
+  letter-spacing: 0.5px;
+  color: variables.$black;
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+// RÉPONSES
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.answer-btn {
+  width: 100%;
+  background: transparent;
+  border: 3.5px solid variables.$black;
+  border-block-end: 0.4rem solid variables.$black;  
+  border-block-start: 0.2rem solid variables.$black;
+
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: variables.$black;
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s, transform 0.18s;
+
+  &:hover {
+    border-color: variables.$black;
+    background: variables.$gray-lt;
+    transform: translateX(4px);
+  }
+
+  &.selected {
+    border-color: variables.$black;
+    background: variables.$black;
+    color: variables.$white;
+  }
+
+  &.correct {
+    border-color: #22c55e;
+    background: #22c55e;
+    color: variables.$white;
+    &::after {
+      content: ' ✓';
+      font-size: 1.1em;
+    }
+  }
+
+  &.wrong {
+    border-color: #ef4444;
+    color: #ef4444;
+    background: transparent;
+    &::after {
+      content: ' ✗';
+      font-size: 1.1em;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+  
+}
+
+// SUBMIT
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-submit {
+  background: variables.$color_13;
+  color: variables.$black;
+  border: none;
+  padding: 12px 28px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  opacity: 0.4;
+}
+
+// RESPONSIVE
+@media (max-width: 560px) {
+  .card {
+    padding: 24px 18px 20px;
+  }
+
+  .question {
+    font-size: 22px;
+  }
+}

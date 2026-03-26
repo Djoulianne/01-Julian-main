@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/style_overlay.css"> 
+  <link rel="stylesheet" href="styles/style_category_overlay.css"> 
+    <title>Home</title>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <img src="../src/images/Logo.png" class="brand-icon" alt="Logo">
+      <span class="brand-name">Movie Kings</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a class="nav-item" href="#">Home</a></li>
+      <li><a class="nav-item" href="quizz.html">Quiz</a></li>
+      <li><a class="nav-item" href="#">Results</a></li>
+    </ul>
+
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="en">EN</button>
+      <button class="lang-btn" id="fr">FR</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>QUOTE <span class="king">KING</span> OR MOVIE FAN ?</h1>
+    <div class="blackbackground">
+      <p>Test your cinema knowledge by matching iconic movie quotes to their films.</p>
+      <a class="hero-link" onclick="openOverlay()">START QUIZ</a> 
+      <a class="hero-link2" onclick="openCategoryOverlay()">BROWSE BY CATEGORY</a>
+      </div>
+  </div>
+     <div class="quiz-types">
+      <div class="quiz-card">
+        <span class="qc-icon">A</span>
+        <div class="qc-title">Iconic Quotes</div>
+        <div class="qc-desc">Test your knowledge of cinema's most memorable lines.</div>
+      </div>
+      <div class="quiz-card">
+        <span class="qc-icon">B</span>
+        <div class="qc-title">Track Progress</div>
+        <div class="qc-desc">Watch your score climb as you correctly identify quotes.</div>
+      </div>
+      <div class="quiz-card">
+        <span class="qc-icon">C</span>
+        <div class="qc-title">Get Feedback</div>
+        <div class="qc-desc">Receive personalized feedback based on your performance.</div>
+      </div>
+    </div>
+  <section class="bottom-section">
+
+    <!-- GAUCHE : Top Players -->
+    <div class="top-players">
+      <h2 class="players-title">Top Players This Week</h2>
+      <ol class="players-list">
+        <li class="player-item">
+          <span class="player-name">SQUEEZI — <strong>20/20</strong></span>
+          <span class="player-date">MAR 22 [ 20:21 ]</span>
+        </li>
+        <li class="player-item">
+          <span class="player-name">PERCEPTOR — <strong>20/20</strong></span>
+          <span class="player-date">MAR 21 [ 19:22 ]</span>
+        </li>
+        <li class="player-item">
+          <span class="player-name">JORDAN KDI... — <strong>20/20</strong></span>
+          <span class="player-date">MAR 21 [ 15:55 ]</span>
+        </li>
+      </ol>
+    </div>
+
+    <!-- SEPARATEUR -->
+    <div class="divider"></div>
+
+    <!-- DROITE : Citation -->
+    <div class="quote-block">
+      <blockquote class="quote-text">
+        " May the Force be with you. "
+        <br>— Guess the movie!
+      </blockquote>
+      <p id="text" class="starwars" style="display:none">Star Wars</p>
+      <button class="reveal-btn" onclick="showHide()">REVEAL ANSWER</button>
+    </div>  
+  </section> 
+  <div class="footer_top"></div>
+      <!-- FOOTER -->
+  <footer>
+    <div>
+      <p class="footer-title">Movie Kings</p>
+      <p>Ultimate Movie Quiz to<br>challenge your friends</p>
+    </div>
+    <div>
+      <p class="footer-title">Navigation</p>
+      <a href="#">Home</a>
+      <a href="#">Start Quiz</a>
+      <a href="#">Results</a>
+      <a href="#">About</a>
+    </div>
+    <div>
+      <p class="footer-title">Resources</p>
+      <a href="#">IMDb</a>
+      <a href="#">Sight & Sound</a>
+      <a href="#">Rotten Tomatoes</a>
+    </div>
+  </footer>
+  <div class="footer_bottom"> © 2026 Movie Kings</div>
+
+      <!-- OVERLAY --> 
+<div class="overlay" id="overlay">
+  <div class="overlay-box">
+    <form action="quizz.html" method="get">
+      <button type="button" class="overlay-close" onclick="closeOverlay()">✕</button>
+      <h2 class="overlay-title">Who are you ?</h2>
+      <h3 class="overlay-subtitle">Are you a king, a queen or...</h2>
+        <div class="overlay-cards">
+          <div class="overlay-card king">
+            <!-- ICONS -->
+            <img src="../src/images/king.svg" alt="King" class="overlay-icon">
+            <input type="radio" name="avatar" class="overlay-radio">
+          </div>
+          <div class="overlay-card binari">
+            <img src="../src/images/binari.svg" alt="Neutral" class="overlay-icon">
+            <input type="radio" name="avatar" class="overlay-radio">
+          </div>
+          <div class="overlay-card queen">
+            <img src="../src/images/queen.svg" alt="Queen" class="overlay-icon">
+            <input type="radio" name="avatar" class="overlay-radio">
+          </div>
+        </div>
+        <!-- NICKNAME -->
+        <input type="text" name="text" class="overlay-input" placeholder="NICKNAME">
+        <!-- START QUIZ -->
+        <button class="overlay-btn">START QUIZ</button>
+    </form>
+  </div>
+</div>
+        <!-- CATEGORY OVERLAY -->
+  <div class="categoryOverlay" id="categoryOverlay">
+    <div class="overlay-box category-box">
+      <button class="overlay-close" onclick="closeCategoryOverlay()">✕</button>
+      
+      <h2 class="overlay-title">SELECT CATEGORY</h2>
+      <p class="overlay-subtitle">Choose a movie category to focus your quiz, or select "All Categories" for a mixed experience.</p>
+      
+      <div class="category-list">
+        <button class="cat-option active">ALL CATEGORIES</button>
+        <button class="cat-option">ACTION</button>
+        <button class="cat-option">DRAMA</button>
+        <button class="cat-option">THRILLER</button>
+        <button class="cat-option">ROMANCE</button>
+        <button class="cat-option">SCI-FI</button>
+        <button class="cat-option">FANTASY</button>
+      </div>
+  
+      <div class="overlay-footer">
+        <button class="footer-btn cancel" onclick="closeCategoryOverlay()">CANCEL</button>
+        <button class="footer-btn start" onclick='window.location.href="quizz.html"'>START QUIZ</button>
+      </div>
+    </div>
+  </div>
+<script src="scripts/script.js"></script> 
+</body>
+</html>
