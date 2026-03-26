@@ -62,23 +62,64 @@
       </div>
 
     </main>
-  </div><!-- /layer-content -->
-
+  </div>
   <script>
     const answerBtns = document.querySelectorAll('.answer-btn');
-    const btnSubmit  = document.querySelector('.btn-submit');
+const btnSubmit  = document.querySelector('.btn-submit');
+const answersContainer = document.querySelector('.answers');
 
-    answerBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        answerBtns.forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
+// 1. Good answer
+const CORRECT_ANSWER = "Casablanca";
+
+// Answer selection
+answerBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    answerBtns.forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
         btnSubmit.disabled = false;
-      });
-    });
+    btnSubmit.style.opacity = "1";
+  });
+});
 
-    document.querySelector('.btn-stop').addEventListener('click', () => {
-      if (confirm('Would you like to stop the quiz?')) window.location.reload();
-    });
+btnSubmit.addEventListener('click', () => {
+  if (btnSubmit.textContent === "Next Question") {
+    window.location.reload(); 
+    return;
+  }
+
+  const selectedBtn = document.querySelector('.answer-btn.selected');
+  const isCorrect = selectedBtn.textContent === CORRECT_ANSWER;
+
+  // 2. desactive button
+  answerBtns.forEach(btn => {
+    btn.disabled = true;
+    // if correct, add green class to the correct answer
+    if (btn.textContent === CORRECT_ANSWER) {
+      btn.classList.add('correct');
+    }
+  });
+
+  // 3. Si l'utilisateur a faux, on affiche son bouton en rouge
+  if (!isCorrect) {
+    selectedBtn.classList.add('wrong');
+  }
+
+  // 4. feedbacks
+  const feedback = document.createElement('p');
+  feedback.classList.add('feedback-msg');
+  
+  if (isCorrect) {
+    feedback.textContent = "Correct !";
+    feedback.classList.add('success');
+  } else {
+    feedback.textContent = `Wrong, the good answer was ${CORRECT_ANSWER}.`;
+    feedback.classList.add('error');
+  }
+  
+  document.querySelector('.card-footer').before(feedback);
+
+  btnSubmit.textContent = "Next Question";
+});
   </script>
 
 </body>
